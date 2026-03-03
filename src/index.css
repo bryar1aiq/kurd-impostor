@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-kurdish: "Noto Kufi Arabic", system-ui, sans-serif;
+  --color-surface: #0f0f1a;
+  --color-surface-card: #1a1a2e;
+  --color-surface-elevated: #252540;
+  --color-surface-input: #16162a;
+  --color-primary: #d4af37;
+  --color-primary-dim: #b8942e;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply min-h-screen font-kurdish bg-surface text-slate-100 antialiased leading-normal;
+  }
+  #root {
+    @apply min-h-screen max-w-[440px] mx-auto px-4 pb-8;
+  }
+}
