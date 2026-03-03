@@ -272,37 +272,41 @@ function App() {
           }`}
         >
           <div className="bg-surface-card/90 backdrop-blur border-2 border-amber-500/20 rounded-3xl p-8 shadow-2xl shadow-amber-500/5 text-center">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 bg-amber-500/15 px-4 py-1.5 rounded-full mb-6 border border-amber-500/20">
-              <span role="img" aria-hidden>🏷️</span>
-              {KURDISH.round(state?.roundNumber ?? 1)}
-            </span>
-            <h2 className="text-2xl font-bold mb-3 text-slate-100">{currentPlayer?.name}</h2>
-            <p
-              className={`inline-flex items-center gap-2 text-lg font-bold py-3 px-6 rounded-2xl my-2 mb-6 border-2 ${
-                currentPlayer?.role === "civilian"
-                  ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/40"
-                  : currentPlayer?.role === "impostor"
-                    ? "bg-red-500/20 text-red-400 border-red-500/40"
-                    : "bg-white/10 text-slate-100 border-white/20"
-              }`}
-            >
-              {currentPlayer?.role === "civilian" && <span role="img" aria-hidden>✅</span>}
-              {currentPlayer?.role === "impostor" && <span role="img" aria-hidden>🎭</span>}
-              {currentPlayer?.role === "mrWhite" && <span role="img" aria-hidden>❓</span>}
-              {currentPlayer?.role === "civilian" && KURDISH.civilian}
-              {currentPlayer?.role === "impostor" && KURDISH.impostor}
-              {currentPlayer?.role === "mrWhite" && KURDISH.mrWhiteRole}
-            </p>
             {wordHidden ? (
-              <div className="my-6 p-6 bg-surface-elevated/50 rounded-2xl border-2 border-dashed border-white/10">
-                <p className="text-slate-400 text-lg mb-2">
-                  {state && state.currentRevealIndex < state.players.length - 1
-                    ? KURDISH.passTo(state.players[state.currentRevealIndex + 1]?.name ?? "")
-                    : "ئامێزەک بگەیەنە هەموو کەس"}
+              <>
+                <div className="my-6 p-6 bg-surface-elevated/50 rounded-2xl border-2 border-dashed border-white/10">
+                  <p className="text-slate-400 text-lg mb-2">
+                    {state && state.currentRevealIndex < state.players.length - 1
+                      ? KURDISH.passTo(state.players[state.currentRevealIndex + 1]?.name ?? "")
+                      : "ئامێزەک بگەیەنە هەموو کەس"}
+                  </p>
+                  <p className="text-slate-500 text-sm">وشەکە شاردراوە</p>
+                </div>
+              </>
+            ) : (
+              <>
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 bg-amber-500/15 px-4 py-1.5 rounded-full mb-6 border border-amber-500/20">
+                  <span role="img" aria-hidden>🏷️</span>
+                  {KURDISH.round(state?.roundNumber ?? 1)}
+                </span>
+                <h2 className="text-2xl font-bold mb-3 text-slate-100">{currentPlayer?.name}</h2>
+                <p
+                  className={`inline-flex items-center gap-2 text-lg font-bold py-3 px-6 rounded-2xl my-2 mb-6 border-2 ${
+                    currentPlayer?.role === "civilian"
+                      ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/40"
+                      : currentPlayer?.role === "impostor"
+                        ? "bg-red-500/20 text-red-400 border-red-500/40"
+                        : "bg-white/10 text-slate-100 border-white/20"
+                  }`}
+                >
+                  {currentPlayer?.role === "civilian" && <span role="img" aria-hidden>✅</span>}
+                  {currentPlayer?.role === "impostor" && <span role="img" aria-hidden>🎭</span>}
+                  {currentPlayer?.role === "mrWhite" && <span role="img" aria-hidden>❓</span>}
+                  {currentPlayer?.role === "civilian" && KURDISH.civilian}
+                  {currentPlayer?.role === "impostor" && KURDISH.impostor}
+                  {currentPlayer?.role === "mrWhite" && KURDISH.mrWhiteRole}
                 </p>
-                <p className="text-slate-500 text-sm">وشەکە شاردراوە</p>
-              </div>
-            ) : currentPlayer?.word ? (
+                {currentPlayer?.word ? (
               <div className="my-6 p-6 bg-gradient-to-br from-amber-500/10 to-transparent rounded-2xl border-2 border-dashed border-amber-500/30">
                 <span className="block text-sm text-amber-300/80 mb-2">{KURDISH.yourWord}</span>
                 <p className="text-4xl font-extrabold text-amber-400 tracking-wide leading-tight m-0 drop-shadow-sm">
@@ -319,6 +323,8 @@ function App() {
                 <p className="text-slate-400 text-[0.95rem] leading-relaxed">{KURDISH.guessItDesc}</p>
               </div>
             ) : null}
+              </>
+            )}
             <div className="flex flex-col gap-2 mt-4">
               {currentPlayer && !wordHidden && (
                 <button
