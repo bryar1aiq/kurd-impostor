@@ -116,7 +116,7 @@ function App() {
   const winners = state ? getWinners(state) : null;
 
   return (
-    <div className="min-h-screen flex flex-col font-kurdish bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-950/30 via-surface to-surface" dir="rtl">
+    <div className="min-h-screen flex flex-col font-kurdish bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-950/30 via-surface to-surface relative" dir="rtl">
       <header className="sticky top-0 z-10 bg-surface/80 backdrop-blur-sm border-b border-amber-500/10 pt-5 pb-4 mb-4">
         <div className="flex items-center gap-3 mb-1">
           <span className="text-3xl" role="img" aria-hidden>🎮</span>
@@ -546,6 +546,10 @@ function App() {
           </button>
         </footer>
       )}
+
+      <p className="fixed left-3 bottom-3 text-[0.7rem] text-slate-500/70 font-normal">
+        developed by Bryar L. Faiq
+      </p>
     </div>
   );
 }
