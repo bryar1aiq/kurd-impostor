@@ -20,3 +20,7 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## Deploy (GitHub Pages)
+
+The workflow deploys to the `gh-pages` branch. In **Settings → Pages**, set **Source** to **Deploy from a branch**, then choose branch `gh-pages` and folder `/ (root)`.
