@@ -320,7 +320,7 @@ function App() {
               </div>
             ) : null}
             <div className="flex flex-col gap-2 mt-4">
-              {currentPlayer?.role === "civilian" && currentPlayer?.word && !wordHidden && (
+              {currentPlayer && !wordHidden && (
                 <button
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 text-base font-semibold rounded-xl border-2 border-white/20 bg-surface-elevated/80 text-slate-200 hover:bg-surface-elevated hover:border-white/30 transition-all"
                   onClick={() => setWordHidden(true)}
@@ -329,7 +329,7 @@ function App() {
                 </button>
               )}
               {(() => {
-                const mustHideFirst = !!(currentPlayer?.role === "civilian" && currentPlayer?.word && !wordHidden);
+                const mustHideFirst = !!(currentPlayer && !wordHidden);
                 return (
                   <button
                     className={`w-full inline-flex items-center justify-center gap-2 py-4 px-6 text-lg font-bold rounded-2xl border-none cursor-pointer transition-all duration-200 ${
