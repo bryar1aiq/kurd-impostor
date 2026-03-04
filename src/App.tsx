@@ -547,8 +547,8 @@ function App() {
         </footer>
       )}
 
-      <p className="fixed left-3 bottom-3 text-[0.7rem] text-slate-500/70 font-normal">
-        developed by Bryar L. Faiq
+      <p className="fixed right-3 bottom-3 text-[0.7rem] text-slate-500/70 font-normal">
+        گەشەپێدراوە لە لایەن: Bryar L. Faiq
       </p>
     </div>
   );
